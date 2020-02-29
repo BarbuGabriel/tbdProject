@@ -23,7 +23,36 @@ public class Crawler {
 	private static int numberOfPagesCrawled = 0;
 	private static Boolean pageVisited = false;
 	private static LinkedList<GraphNode> adjacencyList;
-
+	
+	static void emit(String srcId, String node) {
+		 node = node.replace("://", ".");
+		 node = node.replace("/", ".");
+		 
+		 srcId = srcId.replace("://", ".");
+		 srcId = srcId.replace("/", ".");
+		 
+		 
+		String directoryStruct = "directoryStruct/" + node+ "_" + srcId ;
+		
+		
+		
+		File file = new File(directoryStruct);
+		file.getParentFile().mkdirs(); 
+		try {
+			file.createNewFile();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+//		file.mkdirs();
+		
+		
+	}
+	
+	static void target(String target) {
+		
+	}
 
 	static void createFolderPath(String url) {
 		URL currentURL = null;
